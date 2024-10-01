@@ -1,6 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    //kapt
+    id("kotlin-kapt")
+    //Hilt
+    id("com.google.dagger.hilt.android")
+    //Room
+    id("androidx.room")
 }
 
 android {
@@ -47,12 +53,14 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    room {
+        schemaDirectory("$projectDir/schemas")
+    }
 }
 
 dependencies {
-
+    //default dependencies
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
@@ -66,4 +74,46 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //Hilt di
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+
+    //Coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    //Compose navigation
+    implementation(libs.androidx.navigation.compose)
+
+    //Hilt navigation with Compose
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    //Splashscreen
+    implementation(libs.androidx.core.splashscreen)
+
+    //Retrofit
+    implementation(libs.retrofit)
+
+    //Room
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
+    //Exoplayer
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.exoplayer.dash)
+    implementation(libs.androidx.media3.ui)
+
+    //Lifecycle
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.savedstate)
+
+    // Google
+    implementation(libs.accompanist.systemuicontroller)
+
+}
+
+kapt {
+    correctErrorTypes = true
 }
