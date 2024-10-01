@@ -112,8 +112,10 @@ dependencies {
     // Google
     implementation(libs.accompanist.systemuicontroller)
 
-}
+    //Moshi for GSON
+    implementation(libs.moshi.kotlin)
 
+}
 kapt {
     correctErrorTypes = true
 }
