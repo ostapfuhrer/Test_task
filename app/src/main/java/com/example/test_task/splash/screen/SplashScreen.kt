@@ -22,7 +22,6 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 fun SplashScreen(
     viewModel: SplashViewModel = hiltViewModel()
 ) {
-    SettingStatusBarColor()
     SplashScreenUI()
 }
 
@@ -42,28 +41,6 @@ private fun SplashScreenUI() {
             painter = painterResource(id = R.drawable.ic_launcher_foreground),
             contentDescription = null,
         )
-    }
-}
-
-@Composable
-private fun SettingStatusBarColor() {
-    val systemUiController = rememberSystemUiController()
-    val isDarkTheme = isSystemInDarkTheme()
-
-    SideEffect {
-        systemUiController.setStatusBarColor(
-            color = Color.Transparent,
-            darkIcons = false
-        )
-    }
-
-    DisposableEffect(key1 = systemUiController) {
-        this.onDispose {
-            systemUiController.setStatusBarColor(
-                color = Color.Transparent,
-                darkIcons = !isDarkTheme
-            )
-        }
     }
 }
 
