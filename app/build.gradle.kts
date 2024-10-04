@@ -97,6 +97,7 @@ dependencies {
     //Room
     implementation(libs.androidx.room.runtime)
     annotationProcessor(libs.androidx.room.room.compiler)
+    kapt(libs.androidx.room.room.compiler)
     implementation(libs.androidx.room.ktx)
 
     //Exoplayer
@@ -114,6 +115,11 @@ dependencies {
 
     //Moshi for GSON
     implementation(libs.moshi.kotlin)
+    implementation (libs.moshi)
+    implementation (libs.converter.moshi)
+
+    //Coil
+    implementation (libs.coil.compose)
 
 }
 kapt {

@@ -1,5 +1,6 @@
 package com.example.test_task.navigation.navigator
 
+import android.util.Log
 import kotlinx.coroutines.flow.MutableSharedFlow
 import javax.inject.Inject
 
@@ -21,6 +22,7 @@ class AppNavigatorImpl @Inject constructor() : AppNavigator {
         inclusive: Boolean,
         isSingleTop: Boolean
     ) {
+        Log.d("MyTAG", "Navigating to: $route, popUpTo: $popUpToRoute")
         navigationFlow.emit(
             NavigationIntent.NavigateTo(
                 route = route,

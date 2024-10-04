@@ -21,5 +21,5 @@ object RoomModule {
     ) = Room.databaseBuilder(context, AppDatabase::class.java, "testApplication-db").build()
 
     @Provides
-    fun provideUsersDao(appDatabase: AppDatabase) = appDatabase.videoDao()
+    fun provideVideoDao(appDatabase: AppDatabase) = appDatabase.videoDao()
 }

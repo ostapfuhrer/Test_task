@@ -13,7 +13,7 @@ sealed class Destination (val route: String, vararg params: String) {
         params.forEach { builder.append("/{$it}") }
         builder.toString()
     }
-
+//todo check
     protected fun withArgs(vararg args: String): String {
         return buildString {
             append(route)
@@ -24,4 +24,5 @@ sealed class Destination (val route: String, vararg params: String) {
     }
     object SplashScreen : Destination("splash_screen")
     object MainScreen : Destination("main_screen")
+    object VideoPlayerScreen : Destination("video_player_screen")
 }
