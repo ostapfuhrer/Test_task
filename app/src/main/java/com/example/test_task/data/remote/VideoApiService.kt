@@ -7,5 +7,5 @@ import retrofit2.http.Url
 
 interface VideoApiService {
     @GET
-    suspend fun getVideoList(@Url url: String = "https://gist.githubusercontent.com/ostapfuhrer/7c77beb4c7a6e127efd23b6f0c980863/raw/8a293ac3e2efd240ce84ecc52ae343d6ce7fc32e/gistfilemovies.txt"): Response<VideoResponse>
+    suspend fun getVideoList(@Url url: String = "https://gist.githubusercontent.com/ostapfuhrer/e241e0f5bb9295491e9ecbca92905be4/raw/733a5022234cd4401d43769fb308e93924057bf9/gistfilemovies.txt"): Response<VideoResponse>
 }

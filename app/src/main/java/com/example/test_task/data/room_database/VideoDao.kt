@@ -14,4 +14,7 @@ interface VideoDao {
 
     @Query("SELECT * FROM videos")
     fun getAllVideos(): Flow<List<VideoEntity>>
+
+    @Query("SELECT * FROM videos WHERE videoId = :videoId LIMIT 1")
+    suspend fun getVideoById(videoId: Long): VideoEntity?
 }

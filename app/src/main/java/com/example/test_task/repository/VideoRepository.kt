@@ -6,4 +6,5 @@ import kotlinx.coroutines.flow.Flow
 interface VideoRepository {
     suspend fun fetchAndCacheVideos()
     fun observeVideos(): Flow<List<VideoEntity>>
+    suspend fun getVideoById(videoId: Long): VideoEntity?
 }

@@ -8,7 +8,6 @@ import com.example.test_task.splash.screen.SplashScreen
 
 fun NavGraphBuilder.splashScreen() {
     composable(route = Destination.SplashScreen.fullRoute) {
-        Log.d("MyTAG","NavGraphBuilder.splashScreen()")
         SplashScreen()
     }
 }

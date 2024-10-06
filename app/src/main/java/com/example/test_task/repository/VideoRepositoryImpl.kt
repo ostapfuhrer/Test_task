@@ -53,4 +53,8 @@ class VideoRepositoryImpl @Inject constructor(
     override fun observeVideos(): Flow<List<VideoEntity>> {
         return videoDao.getAllVideos()
     }
+
+    override suspend fun getVideoById(videoId: Long): VideoEntity? {
+        return videoDao.getVideoById(videoId)
+    }
 }

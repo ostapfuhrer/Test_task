@@ -15,7 +15,7 @@ import com.example.test_task.main.viewmodel.MainViewModel
 
 @Composable
 fun MainScreen(
-    mainViewModel: MainViewModel = hiltViewModel()
+    mainViewModel: MainViewModel = hiltViewModel(),
 ) {
     val videoList by mainViewModel.videoList.collectAsState()
 
@@ -24,7 +24,9 @@ fun MainScreen(
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(videoList) { video ->
-            VideoCard(video = video)
+            VideoCard(video = video) {
+                mainViewModel.navigateToVideoPlayer(video.videoId)
+            }
             Log.d("MyTAG", "Video: $video")
         }
     }

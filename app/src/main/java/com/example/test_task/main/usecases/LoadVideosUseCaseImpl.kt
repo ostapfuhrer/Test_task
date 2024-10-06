@@ -15,4 +15,9 @@ class LoadVideosUseCaseImpl @Inject constructor(
     override suspend fun fetchAndCacheVideos() {
         videoRepository.fetchAndCacheVideos()
     }
+
+    override suspend fun getVideoById(videoId: Long): String? {
+        return videoRepository.getVideoById(videoId)?.url?.firstOrNull()
+    }
+
 }

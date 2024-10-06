@@ -15,6 +15,7 @@ import com.example.test_task.navigation.navigator.NavigationIntent
 import com.example.test_task.navigation.viewmodel.NavigationViewModel
 import com.example.test_task.splash.navigation.splashScreen
 import com.example.test_task.splash.viewmodel.SplashViewModel
+import com.example.test_task.videoplayer.navigation.videoPlayerScreen
 import kotlinx.coroutines.flow.SharedFlow
 
 @Composable
@@ -34,9 +35,10 @@ fun Root(
             navController = getNavController(),
             startDestination = Destination.SplashScreen.fullRoute
         ) {
-            Log.d("MyTAG","Root() called")
+            Log.d("MyTAG", "Root() called")
             splashScreen()
             mainScreen()
+            videoPlayerScreen()
         }
     }
 }

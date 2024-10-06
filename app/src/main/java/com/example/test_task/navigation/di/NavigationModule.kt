@@ -1,9 +1,11 @@
 package com.example.test_task.navigation.di
 
 import com.example.test_task.navigation.actions.SplashNavigationActionsImpl
+import com.example.test_task.navigation.actions.VideoNavigationActionsImpl
 import com.example.test_task.navigation.navigator.AppNavigator
 import com.example.test_task.navigation.navigator.AppNavigatorImpl
 import com.example.test_task.splash.navigation.SplashNavigationActions
+import com.example.test_task.videoplayer.navigation.IVideoPlayerNavigationActions
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -22,4 +24,10 @@ abstract class NavigationModule {
     abstract fun bindSplashNavigationActions(
         splashNavigationActions: SplashNavigationActionsImpl
     ): SplashNavigationActions
+
+    @Singleton
+    @Binds
+    abstract fun bindVideoPlayerNavigationActions(
+        videoNavigationActions: VideoNavigationActionsImpl
+    ): IVideoPlayerNavigationActions
 }

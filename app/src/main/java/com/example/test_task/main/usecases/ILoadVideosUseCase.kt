@@ -4,6 +4,7 @@ import com.example.test_task.data.entities.VideoEntity
 import kotlinx.coroutines.flow.Flow
 
 interface ILoadVideosUseCase {
-     fun observeVideos(): Flow<List<VideoEntity>>
-     suspend fun fetchAndCacheVideos()
+    fun observeVideos(): Flow<List<VideoEntity>>
+    suspend fun fetchAndCacheVideos()
+    suspend fun getVideoById(videoId: Long): String?
 }

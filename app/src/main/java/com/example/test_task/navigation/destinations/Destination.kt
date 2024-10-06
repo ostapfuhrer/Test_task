@@ -7,14 +7,14 @@ package com.example.test_task.navigation.destinations
  * @param params the list of mandatory parameter names to add to the route to get the full route.
  * @property fullRoute the full route to the destination, including possible parameters. To be used when providing destinations inside NavGraph.
  */
-sealed class Destination (val route: String, vararg params: String) {
+sealed class Destination(val route: String, vararg params: String) {
     val fullRoute: String = if (params.isEmpty()) route else {
         val builder = StringBuilder(route)
         params.forEach { builder.append("/{$it}") }
         builder.toString()
     }
-//todo check
-    protected fun withArgs(vararg args: String): String {
+
+    fun withArgs(vararg args: String): String {
         return buildString {
             append(route)
             args.forEach { arg ->
@@ -22,7 +22,8 @@ sealed class Destination (val route: String, vararg params: String) {
             }
         }
     }
+
     object SplashScreen : Destination("splash_screen")
     object MainScreen : Destination("main_screen")
-    object VideoPlayerScreen : Destination("video_player_screen")
+    object VideoPlayerScreen : Destination("video_player_screen/{videoId}", "videoId")
 }
