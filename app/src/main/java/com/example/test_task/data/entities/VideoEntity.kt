@@ -14,6 +14,7 @@ data class VideoEntity(
     val subtitle: String,
     val thumb: String
 )
+
 class Converters {
     @TypeConverter
     fun fromStringList(value: List<String>?): String? {

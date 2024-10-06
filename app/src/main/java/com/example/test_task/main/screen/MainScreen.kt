@@ -17,14 +17,11 @@ import com.example.test_task.main.viewmodel.MainViewModel
 fun MainScreen(
     mainViewModel: MainViewModel = hiltViewModel()
 ) {
-    Log.d("MyTAG","MainScreen()")
     val videoList by mainViewModel.videoList.collectAsState()
-    Log.d("MyTAG", "Video list size: ${videoList.size}")
 
     LazyColumn(
-        contentPadding = PaddingValues(16.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp)
-
+        contentPadding = PaddingValues(vertical = 64.dp, horizontal = 16.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(videoList) { video ->
             VideoCard(video = video)
