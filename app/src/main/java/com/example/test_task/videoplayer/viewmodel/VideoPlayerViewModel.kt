@@ -16,19 +16,18 @@ class VideoPlayerViewModel @Inject constructor(
     private val _videoUrl = MutableLiveData<String?>()
     val videoUrl: LiveData<String?> get() = _videoUrl
 
-    private val _videoList = mutableListOf<String>() // Список відео
-    private var currentVideoIndex = -1 // Індекс поточного відео
+    private val _videoList = mutableListOf<String>()
+    private var currentVideoIndex = -1
 
     fun loadVideo(videoId: Long) {
         viewModelScope.launch {
-            // Завантажуємо URL-адресу відео за ID
+    
             val videoUrl = loadVideosUseCase.getVideoById(videoId)
             _videoUrl.value = videoUrl
 
-            // Додаємо URL до списку, якщо ще не додано
             if (!videoUrl.isNullOrEmpty() && !(_videoList.contains(videoUrl))) {
                 _videoList.add(videoUrl)
-                currentVideoIndex = _videoList.size - 1 // Оновлюємо індекс
+                currentVideoIndex = _videoList.size - 1
             }
         }
     }
